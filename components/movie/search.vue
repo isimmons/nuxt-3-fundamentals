@@ -1,6 +1,6 @@
-<script setup>
+<script setup lang="ts">
 const config = useRuntimeConfig();
-const query = ref('');
+const query = ref('batman');
 const movies = ref([]);
 
 const removeSubtitle= (title) => {
@@ -9,22 +9,22 @@ const removeSubtitle= (title) => {
       : title;
 }
 
-const search = async (pageLoad = null) => {
+const search = async () => {
   const { Search } = await $fetch(
-      `https://www.omdbapi.com/?apikey=${config.OMDB_API_KEY}&s=${pageLoad ??= query.value}`
+      `https://www.omdbapi.com/?apikey=${config.OMDB_API_KEY}&s=${query.value}`
   );
 
   movies.value = Search;
 };
 
-//search('batman');
+search();
 </script>
 
 <template>
   <div class="container">
     <form @submit.prevent="search">
-      <input type="text" v-model="query" />
-      <button type="submit">Search</button>
+      <input type="text" name="query" v-model="query" />
+      <button>Search</button>
     </form>
 
     <ul>
