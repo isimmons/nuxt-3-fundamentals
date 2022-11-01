@@ -17,14 +17,14 @@ const search = async (pageLoad = null) => {
   movies.value = Search;
 };
 
-search('batman');
+//search('batman');
 </script>
 
 <template>
   <div class="container">
     <form @submit.prevent="search">
       <input type="text" v-model="query" />
-      <button>Search</button>
+      <button type="submit">Search</button>
     </form>
 
     <ul>
