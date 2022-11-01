@@ -1,0 +1,14 @@
+POST http://localhost:3000/api/helloWorld
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "foo",
+  "framework": "nuxt 3"
+}
+
+###
+GET http://localhost:3000/api/helloWorld
+Accept: application/json
+
+###
